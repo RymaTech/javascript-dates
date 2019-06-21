@@ -2,7 +2,7 @@
   "name": "pairing-exercise",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest --env=jsdom --watch"
+    "test": "jest --env=jsdom"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",

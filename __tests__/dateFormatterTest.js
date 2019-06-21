@@ -7,6 +7,14 @@ it('when the system date and the date to format are the same day formats as "TOD
   expect(format(dateTimeToFormat, systemDateTime)).toBe("TODAY");
 });
 
+it('when the date to format is the day before the system date', () => {
+  const december = 11; //js Date object month is indexed from 0
+  const systemDateTime = new Date(2018, december, 1, 10, 5).getTime();
+  const formattedPrevDate = new Date(2018, 10, 30, 12, 50).getTime(); //Same day different time
+  expect(format(formattedPrevDate, systemDateTime)).toBe("YESTERDAY");
+});
+
+
 it('when the system date and the date to format are NOT the same day formats as "11/12/2018"', () => {
   const december = 11; //js Date object month is indexed from 0
   const systemDateTime = new Date(2018, december, 15, 10, 5).getTime();

@@ -14,5 +14,22 @@ export const format = (dateToFormatTimeMillis, systemDateTimeMillis) => {
   const formattedSystemDate = `${systemDateToFormat.getDate()}/${systemDateToFormat.getMonth() +
     1}/${systemDateToFormat.getFullYear()}`;
 
-  return formattedDate === formattedSystemDate ? "TODAY" : formattedDate;
+  const prevDate = new Date(systemDateToFormat);
+  console.log("prevDate", prevDate);
+  prevDate.setDate(prevDate.getDate() - 1);
+
+  const formattedPrevDate = `${prevDate.getDate()}/${prevDate.getMonth() +
+    1}/${prevDate.getFullYear()}`;
+
+  // console.log("now", systemDateToFormat);
+  // console.log("newdate", prevDate);
+  // console.log('prev', formattedPrevDate);
+
+  if (formattedDate === formattedSystemDate) {
+    return "TODAY";
+  } else if (formattedDate === formattedPrevDate) {
+    return "YESTERDAY";
+  } else {
+    return formattedDate;
+  }
 };
